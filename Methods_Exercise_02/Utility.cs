@@ -18,6 +18,15 @@ namespace Methods_Exercise_02
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[rng.Next(s.Length)]).ToArray());
         }
+        public static List<int> RandomNumberCollection(int count)
+        {
+            var list = Enumerable.Range(1, rng.Next(count)).ToList();
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i] = rng.Next(count);
+            }
+            return list;
+        }
         public static List<string> RandomColorsList(int minValue, int maxValue) // Values must be within range of Int.32
         {
             List<string> list = new List<string>();
@@ -51,5 +60,6 @@ namespace Methods_Exercise_02
             var size = rng.Next(minValue, maxValue);
             return new string[size];
         }
+
     }
 }
